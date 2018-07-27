@@ -4,7 +4,7 @@
 // @version      1.0.0
 // @description  View a user on the griefer list in lookups.
 // @author       haykam821
-// @match        http*://localhost:4567/*
+// @match        http*://pxls.space/*
 // @grant        none
 // ==/UserScript==
 
