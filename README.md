@@ -1,6 +1,6 @@
 # Pxls Griefer List
 
-A list of bad actors in Pxls and a Chrome extension to view it on lookups.
+A list of bad actors in Pxls and a Tampermonkey script to view it on lookups.
 
 ## Tampermonkey Script
 
