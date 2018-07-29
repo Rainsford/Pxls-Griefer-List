@@ -47,6 +47,11 @@
 				"Changed the 'You're gonna go far, kid' banner to say 'You're gonna go fox, kid'.",
 				"Griefed the invite link for ManePxls."
 			]
-		}
+        },
+        "meerkat": {
+            "reason": [
+                "Destroying stars on the American flag."
+            ]
+        }
 	}
 }
