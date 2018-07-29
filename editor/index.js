@@ -29,5 +29,21 @@ yargs.command("add <user> [reasons...]", "Adds a reason to a user.", builder => 
         return list;
     });
 });
+yargs.command("clear <user>", "Clears a user's data on the list.", builder => {
+    builder.positional("user", {});
+}, async argv => {
+    runWithList(list => {
+        list.users[argv.user] = defaultUser;
+        return list;
+    });
+});
+yargs.command("remove <user>", "Removes a user from the list.", builder => {
+    builder.positional("user", {});
+}, async argv => {
+    runWithList(list => {
+        list.users[argv.user] = undefined;
+        return list;
+    });
+});
 
 yargs.argv;
