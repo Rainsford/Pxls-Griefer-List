@@ -16,8 +16,19 @@ fetch("https://cdn.rawgit.com/haykam821/Pxls-Griefer-List/master/list.json").the
 		id: "griefer_list",
 		name: "Griefer List",
 		get: data => {
-			if (users[data.username]) {
-				return $("<span>").css("color", "red").text(users[data.username].reason);
+			const user = users[data.username];
+			if (user) {
+				const output = $("<span>").css("color", "red");
+				
+				if (user.reason.length > 2) {
+					output.text(`${user.reason[0]} (${user.reason.length - 1} more entries)`);
+				} else (user.reason.length === 2) {
+					output.text(`${user.reason[0]} (1 more entry)`);
+				} else {
+					output.text(user.reason[0]);
+				}
+				
+				return output;
 			} else {
 				return "(Not on list)";
 			}
