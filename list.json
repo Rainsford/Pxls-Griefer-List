@@ -47,11 +47,28 @@
 				"Changed the 'You're gonna go far, kid' banner to say 'You're gonna go fox, kid'.",
 				"Griefed the invite link for ManePxls."
 			]
-        },
-        "meerkat": {
-            "reason": [
-                "Destroying stars on the American flag."
-            ]
-        }
+		},
+		"meerkat": {
+			"reason": [
+				"Destroying stars on the American flag."
+			]
+		},
+		"PopieJopie123": {
+			"reason": [
+				"Attempted to create Loss over other art."
+			]
+		},
+		"Adi": {
+			"reason": [
+				"Griefing a red stripe on the American flag."
+			]
+		},
+		"CrypticIndividual": {
+			"reason": [
+				"Attacking the Statue of Liberty art.",
+				"Attacking the Jefferson art.",
+				"Attacking the USA world flag."
+			]
+		}
 	}
 }
