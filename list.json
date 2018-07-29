@@ -22,7 +22,7 @@
 		},
 		"TheMadKing": {
 			"reason": [
-				"Placing a yellow rectangle on 'You're going to go far' banner."
+				"Placing a yellow rectangle on 'You're going to go far, kid' banner."
 			]
 		},
 		"PEKKACarl": {
@@ -40,6 +40,12 @@
 		"AlfieM": {
 			"reason": [
 				"Adding a B to the end of SUPER on Super Mario 3D World."
+			]
+		},
+		"AndrewKovnat": {
+			"reason": [
+				"Changed the 'You're gonna go far, kid' banner to say 'You're gonna go fox, kid'.",
+				"Griefed the invite link for ManePxls."
 			]
 		}
 	}
