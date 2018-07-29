@@ -17,13 +17,10 @@ fetch("https://cdn.rawgit.com/haykam821/Pxls-Griefer-List/master/list.json").the
 		name: "Griefer List",
 		get: data => {
 			if (users[data.username]) {
-				return users[data.username].reason;
+				return $("<span>").css("color", "red").text(users[data.username].reason);
 			} else {
 				return "(Not on list)";
 			}
-		},
-		css: {
-			color: "red",
 		},
 	});
 });
