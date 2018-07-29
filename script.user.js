@@ -23,4 +23,10 @@ fetch("https://cdn.rawgit.com/haykam821/Pxls-Griefer-List/master/list.json").the
 			}
 		},
 	});
+}).catch(() => {
+	App.lookup.registerHook({
+		id: "griefer_list",
+		name: "Griefer List",
+		get: () => "(Couldn't get list)",
+	});
 });
