@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Pxls Griefer List
 // @namespace    https://github.com/haykam821/Pxls-Griefer-List#readme
-// @version      1.2.0
+// @version      1.2.1
 // @description  View a user on the griefer list in lookups.
 // @author       haykam821
 // @match        http*://pxls.space/*
@@ -22,7 +22,7 @@ fetch("https://cdn.rawgit.com/haykam821/Pxls-Griefer-List/master/list.json").the
 				
 				if (user.reason.length > 2) {
 					output.text(`${user.reason[0]} (${user.reason.length - 1} more entries)`);
-				} else (user.reason.length === 2) {
+				} else if (user.reason.length === 2) {
 					output.text(`${user.reason[0]} (1 more entry)`);
 				} else {
 					output.text(user.reason[0]);
