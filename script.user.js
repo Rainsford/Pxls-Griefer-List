@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Pxls Griefer List
 // @namespace    https://github.com/haykam821/Pxls-Griefer-List#readme
-// @version      1.1.0
+// @version      1.2.0
 // @description  View a user on the griefer list in lookups.
 // @author       haykam821
 // @match        http*://pxls.space/*
