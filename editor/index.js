@@ -28,11 +28,19 @@ function commitOption(builder) {
         default: true,
     });
 }
+function userPositional(builder) {
+    return builder.positional("user", {
+        description: "The target user.",
+        type: "string",
+    });
+}
 
 yargs.command("add <user> [reasons...]", "Adds a reason to a user.", builder => {
     commitOption(builder);
-	builder.positional("user", {});
-	builder.positional("reasons", {});
+    userPositional(builder);
+	builder.positional("reasons", {
+        description: "The reason(s) this user is on the list.",
+    });
 }, async argv => {
 	runWithList(list => {
 		if (!list.users[argv.user]) {
@@ -47,7 +55,7 @@ yargs.command("add <user> [reasons...]", "Adds a reason to a user.", builder => 
 });
 yargs.command("clear <user>", "Clears a user's data on the list.", builder => {
     commitOption(builder);
-	builder.positional("user", {});
+    userPositional(builder);
 }, async argv => {
 	runWithList(list => {
 		list.users[argv.user] = defaultUser;
@@ -56,7 +64,7 @@ yargs.command("clear <user>", "Clears a user's data on the list.", builder => {
 });
 yargs.command("remove <user>", "Removes a user from the list.", builder => {
     commitOption(builder);
-	builder.positional("user", {});
+    userPositional(builder);
 }, async argv => {
 	runWithList(list => {
 		list.users[argv.user] = undefined;
