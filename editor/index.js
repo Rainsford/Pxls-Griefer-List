@@ -1,20 +1,36 @@
 const fs = require("fs-extra");
 const yargs = require("yargs");
 
+const simple = require("simple-git");
+const git = simple("./../");
+
 const listPath = "./../list.json";
 
 const defaultUser = {
 	reason: [],
 };
 
-async function runWithList(func) {
-	const list = await fs.readJSON(listPath);
-	fs.writeJSON(listPath, func(list), {
+async function runWithList(func, commitMsg) {
+    const list = await fs.readJSON(listPath);
+	await fs.writeJSON(listPath, func(list), {
 		spaces: "\t",
-	});
+    });
+
+    if (commitMsg) {
+        git.commit(commitMsg, "list.json");
+    }
+}
+
+function commitOption(builder) {
+    return builder.option("commit", {
+        description: "Commits the changes to the list after the action takes place.",
+        type: "boolean",
+        default: true,
+    });
 }
 
 yargs.command("add <user> [reasons...]", "Adds a reason to a user.", builder => {
+    commitOption(builder);
 	builder.positional("user", {});
 	builder.positional("reasons", {});
 }, async argv => {
@@ -24,26 +40,28 @@ yargs.command("add <user> [reasons...]", "Adds a reason to a user.", builder => 
 		}
 
 		const user = list.users[argv.user];
-		user.reason.push(...argv.reasons);
+        user.reason.push(...argv.reasons);
 
 		return list;
-	});
+	}, argv.commit ? `Added ${argv.user} to list` : undefined);
 });
 yargs.command("clear <user>", "Clears a user's data on the list.", builder => {
+    commitOption(builder);
 	builder.positional("user", {});
 }, async argv => {
 	runWithList(list => {
 		list.users[argv.user] = defaultUser;
 		return list;
-	});
+    }, argv.commit ? `Cleared ${argv.user} on list` : undefined);
 });
 yargs.command("remove <user>", "Removes a user from the list.", builder => {
+    commitOption(builder);
 	builder.positional("user", {});
 }, async argv => {
 	runWithList(list => {
 		list.users[argv.user] = undefined;
 		return list;
-	});
+    }), argv.commit ? `Removed ${argv.user} from list` : undefined;
 });
 
 yargs.argv;
